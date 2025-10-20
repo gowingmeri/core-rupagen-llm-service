@@ -20,6 +20,12 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
+const MODEL_LLM_NAME =
+  "Mulai sekarang namamu adalah Dino, Asisten Pintar dari Aplikasi Kawaan";
+const USER_DAILY_NOTE = "Yogawan sudah belajar 5 menit/hari";
+const USER_PERSONALIZE =
+  "Yogawan Aditya Pratama belajar 5 menit/hari, kekurangan Yogawan (Kurang percaya diri, Pemalas, Cuek, Pelupa), Kelebihan Yogawan (Pembelajar Cepat, IQ 132), Cerita Yogawan (Saya sering cemas akhir-akhir ini karena mau lulus, tapi belum menemukan bakat yang menonjol di diri saya, jadi sering sekali kepikiran.)";
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
@@ -38,10 +44,9 @@ export default async function handler(
   }
 
   try {
-    // Add Dino system prompt at the beginning
     const dinoSystemMessage = {
       role: "system" as const,
-      content: "Now, your name is a Dino.",
+      content: `${MODEL_LLM_NAME}. ${USER_DAILY_NOTE}. ${USER_PERSONALIZE}`,
     };
 
     const messagesWithDino = [dinoSystemMessage, ...messages];
