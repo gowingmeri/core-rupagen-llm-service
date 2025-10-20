@@ -84,11 +84,6 @@ const ChatAI: React.FC = () => {
         <Splash />
       ) : (
         <div>
-          {/* Title Page */}
-          <Head>
-            <title>GeekTakon</title>
-          </Head>
-
           {/* Chat AI Container */}
           <div className="w-full sm:w-[720px]">
             <div className="flex flex-col min-h-screen">

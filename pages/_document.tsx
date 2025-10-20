@@ -1,3 +1,4 @@
+// @/pages/_document.tsx
 import { Html, Head, Main, NextScript } from "next/document";
 
 const Document = () => {
@@ -10,6 +11,6 @@ const Document = () => {
       </body>
     </Html>
   );
-}
+};
 
 export default Document;

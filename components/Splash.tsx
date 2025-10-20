@@ -11,11 +11,12 @@ const Splash = () => {
       >
         {/* Image */}
         <img
-          src="./favicon/icon.svg"
+          src="./favicon/icon.png"
           alt="Logo"
           className="w-[256px] pointer-events-none"
           draggable="false"
         />
+
         {/* Background */}
         <div className="absolute inset-0 bg-transparent"></div>
       </div>
