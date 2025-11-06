@@ -1,23 +1,19 @@
 // @/components/ChatHeader.tsx
 "use client";
 import React from "react";
-import ProtectedImage from "@/components/ProtectedImage";
+import Image from "next/image";
 
 const ChatHeader = () => {
   return (
     <div className="pl-5 pr-5 pb-5 bg-none">
       {/* Image */}
-      <ProtectedImage
-        src="/favicon/icon.png"
-        alt="logo"
-        className="h-24 mt-24 mb-3"
-      />
+      <Image src="/favicon/icon.png" alt="Logo" width={256} height={256} />
 
       {/* Title */}
       <div className="flex items-end gap-2">
-        <p className="text-3xl font-thin text-white">Dino</p>
-        <p className="text-white/50 text-xs p-3 border border-white/15 w-fit rounded-r-2xl rounded-tl-2xl">
-          Base code of JawirAI & GeekTakon, a community-driven project.
+        <p className="text-3xl font-thin text-black">Dino</p>
+        <p className="text-black/50 text-xs p-3 border border-black/15 w-fit rounded-r-2xl rounded-tl-2xl">
+          Hi! I'm Dino, your friendly AI assistant. How can I assist you today?
         </p>
       </div>
     </div>

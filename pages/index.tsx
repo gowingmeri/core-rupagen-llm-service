@@ -23,7 +23,7 @@ const ChatAI: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashLoading(false);
-    }, 500);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -79,13 +79,13 @@ const ChatAI: React.FC = () => {
   const handleClearHistory = (): void => setChatHistory([]);
 
   return (
-    <div className="bg-[url('/background/bg-white.png')] bg-cover bg-center flex justify-center pt-20">
+    <div className="bg-[var(--color-background)] flex justify-center">
       {isSplashLoading ? (
         <Splash />
       ) : (
         <div>
           {/* Chat AI Container */}
-          <div className="w-full sm:w-[720px]">
+          <div className="pt-20 w-full sm:w-[720px]">
             <div className="flex flex-col min-h-screen">
               {" "}
               {!hasHistory ? (

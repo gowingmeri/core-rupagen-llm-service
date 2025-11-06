@@ -73,21 +73,21 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ content }) => {
           return (
             <div
               key={index}
-              className="relative border border-white/15 text-white rounded-xl mb-5 p-4 bg-[#1e1e1e] overflow-x-auto"
+              className="relative border border-black/15 text-black rounded-xl mb-5 p-4 bg-white overflow-x-auto"
             >
               <div className="flex justify-between items-center mb-2">
-                <span className="text-[10px] text-white/50 uppercase">
+                <span className="text-[10px] text-black/50 uppercase">
                   {language}
                 </span>
                 <button
                   onClick={() => handleCopyCode(code, index)}
-                  className="border border-white/15 text-white text-[10px] px-2 py-1 rounded hover:bg-gray-600 transition"
+                  className="border border-black/15 text-black text-[10px] px-2 py-1 rounded hover:bg-gray-600 transition"
                 >
                   {copiedIndex === index ? "Copied!" : "Copy"}
                 </button>
               </div>
 
-              <pre className="text-[0.75rem] text-white overflow-x-auto">
+              <pre className="text-[0.75rem] text-black overflow-x-auto">
                 <code
                   dangerouslySetInnerHTML={{
                     __html: highlightCode(code, language),

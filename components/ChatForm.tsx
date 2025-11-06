@@ -24,27 +24,24 @@ const ChatForm: React.FC<ChatFormProps> = ({
   };
 
   return (
-    <div className="w-full bg-black/5 backdrop-blur border border-white/15 rounded-3xl">
+    <div className="w-full bg-transparent backdrop-blur border border-black/15 rounded-3xl">
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Masukan pesan disini"
-        className="bg-transparent text-white/50 rounded-3xl w-full h-20 sm:h-32 p-5 resize-none focus:outline-none"
+        className="bg-transparent text-black/50 rounded-3xl w-full h-20 sm:h-32 p-5 resize-none focus:outline-none"
         disabled={isLoading}
       />
 
-      <div className="flex justify-between items-center border-t border-white/15 p-3 rounded-3xl">
-        <p className="text-xs text-white/50">
-          ꦠꦏꦺꦴꦁ ꦲꦶꦁꦏꦁ ꦱꦤ꧀ꦠꦸꦤ꧀, Jangan tanya hal2 jomok le, NGUAWORRRR, TAK DUPAK
-          RAIMU SISAN!!!!!
-        </p>
+      <div className="flex justify-between items-center border-t border-black/15 p-3 rounded-3xl">
+        <p className="text-xs text-black/50">by CH Indomie Goreng's Team</p>
         <button
           onClick={handleSend}
           className={`p-5 w-[64px] font-semibold rounded-full transition ${
             isLoading
-              ? "bg-white/5 text-white cursor-not-allowed"
-              : "bg-white/5 text-white"
+              ? "bg-black/5 text-black cursor-not-allowed"
+              : "bg-black/5 text-black"
           }`}
           disabled={isLoading}
         >

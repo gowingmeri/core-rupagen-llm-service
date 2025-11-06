@@ -20,7 +20,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
   <div className="flex-col pb-64">
     {chatHistory.length === 0 ? (
       <div className="mt-5">
-        <p className="text-xs text-center p-1 font-light leading-[120%] text-white/50">
+        <p className="text-xs text-center p-1 font-light leading-[120%] text-black/50">
           If you find any inappropriate messages,
           <br />
           please report{" "}
@@ -37,14 +37,14 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
     )}
 
     {isLoading && (
-      <div className="flex justify-start m-5">
+      <div className="flex text-black justify-start m-5">
         <Icon
           icon="line-md:loading-twotone-loop"
           width="16"
           height="16"
-          className="mt-3 text-white"
+          className="mt-3 text-black"
         />
-        <div className="min-w-[300px] text-xs ml-2 mt-3 p-3 rounded-r-xl rounded-bl-xl bg-transparent text-white/50 border border-white/15">
+        <div className="min-w-[300px] text-xs ml-2 mt-3 p-3 rounded-r-xl rounded-bl-xl bg-transparent text-black/50 border border-black/15">
           Typing...
         </div>
       </div>
@@ -53,7 +53,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({
     <div className="flex justify-center p-5">
       <button
         onClick={handleClearHistory}
-        className="px-5 py-3 border border-white/10 text-xs text-white rounded-full"
+        className="px-5 py-3 border border-black/10 text-xs text-black rounded-full"
       >
         Clear History
       </button>
