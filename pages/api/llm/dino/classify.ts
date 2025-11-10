@@ -1,6 +1,7 @@
 // @/pages/api/llm/dino/classify.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
+import { verifyCors } from "@/middleware/verifyCors";
 
 interface Message {
   role: "system" | "user" | "assistant";
@@ -37,7 +38,7 @@ const DEFAULT_CATEGORIES = [
   "politics",
 ];
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
@@ -104,3 +105,5 @@ export default async function handler(
     });
   }
 }
+
+export default verifyCors(handler);

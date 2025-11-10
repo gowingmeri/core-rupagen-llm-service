@@ -14,8 +14,8 @@ interface GroqResponse {
   error?: string;
 }
 
-const SYSTEM_PROMPT = process.env.NEXT_PUBLIC_SYSTEM_PROMPT || "";
-const URL_API = process.env.NEXT_PUBLIC_URL_API || "";
+const SYSTEM_PROMPT = process.env.NEXT_PUBLIC_SYSTEM_PROMPT as string;
+const URL_API = process.env.NEXT_PUBLIC_URL_API as string;
 
 export const requestToGroqAI = async (history: Message[]): Promise<string> => {
   if (!URL_API) throw new Error("NEXT_PUBLIC_URL_API is not defined");

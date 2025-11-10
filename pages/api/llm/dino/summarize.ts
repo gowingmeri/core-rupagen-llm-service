@@ -1,6 +1,7 @@
 // @/pages/api/llm/dino/summarize.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
+import { verifyCors } from "@/middleware/verifyCors";
 
 interface RequestBody {
   text: string;
@@ -16,7 +17,7 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
@@ -62,3 +63,5 @@ export default async function handler(
     });
   }
 }
+
+export default verifyCors(handler);

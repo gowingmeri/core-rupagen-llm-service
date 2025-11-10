@@ -1,6 +1,7 @@
 // @/pages/api/llm/dino/embed.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
+import { verifyCors } from "@/middleware/verifyCors";
 
 interface RequestBody {
   text: string;
@@ -17,7 +18,7 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
@@ -88,3 +89,5 @@ function createSimpleEmbedding(text: string, dimensions: number): number[] {
   const magnitude = Math.sqrt(embedding.reduce((sum, val) => sum + val * val, 0));
   return embedding.map(val => magnitude > 0 ? val / magnitude : 0);
 }
+
+export default verifyCors(handler);

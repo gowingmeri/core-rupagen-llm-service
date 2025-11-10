@@ -1,6 +1,7 @@
 // @/pages/api/llm/chat.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
+import { verifyCors } from "@/middleware/verifyCors";
 
 interface Message {
   role: "system" | "user" | "assistant";
@@ -20,13 +21,11 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-const MODEL_LLM_NAME =
-  "Mulai sekarang namamu adalah Dino, Asisten Pintar dari Aplikasi Kawaan";
-const USER_DAILY_NOTE = "Yogawan sudah belajar 5 menit/hari";
-const USER_PERSONALIZE =
-  "Yogawan Aditya Pratama belajar 5 menit/hari, kekurangan Yogawan (Kurang percaya diri, Pemalas, Cuek, Pelupa), Kelebihan Yogawan (Pembelajar Cepat, IQ 132), Cerita Yogawan (Saya sering cemas akhir-akhir ini karena mau lulus, tapi belum menemukan bakat yang menonjol di diri saya, jadi sering sekali kepikiran.)";
+const MODEL_LLM_NAME = process.env.DINO_MODEL_LLM_NAME as string;
+const USER_DAILY_NOTE = process.env.DINO_USER_DAILY_NOTE as string;
+const USER_PERSONALIZE = process.env.DINO_USER_PERSONALIZE as string;
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>,
 ) {
@@ -68,3 +67,5 @@ export default async function handler(
     });
   }
 }
+
+export default verifyCors(handler);
