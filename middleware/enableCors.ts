@@ -1,4 +1,4 @@
-// @/pages/api/utils/verifyCors.ts
+// @/middleware/enableCors.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import Cors from "cors";
 
@@ -22,7 +22,7 @@ function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: Function) 
 }
 
 // Wrapper untuk handler
-export function verifyCors(handler: (req: NextApiRequest, res: NextApiResponse) => any) {
+export function enableCors(handler: (req: NextApiRequest, res: NextApiResponse) => any) {
   return async function (req: NextApiRequest, res: NextApiResponse) {
     // jalankan CORS
     await runMiddleware(req, res, cors);

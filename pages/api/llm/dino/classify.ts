@@ -1,7 +1,7 @@
 // @/pages/api/llm/dino/classify.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
-import { verifyCors } from "@/middleware/verifyCors";
+import { enableCors } from "@/middleware/enableCors";
 
 interface Message {
   role: "system" | "user" | "assistant";
@@ -106,4 +106,4 @@ async function handler(
   }
 }
 
-export default verifyCors(handler);
+export default enableCors(handler);

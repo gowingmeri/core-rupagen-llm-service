@@ -1,7 +1,7 @@
 // @/pages/api/llm/dino/embed.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { Groq } from "groq-sdk";
-import { verifyCors } from "@/middleware/verifyCors";
+import { enableCors } from "@/middleware/enableCors";
 
 interface RequestBody {
   text: string;
@@ -90,4 +90,4 @@ function createSimpleEmbedding(text: string, dimensions: number): number[] {
   return embedding.map(val => magnitude > 0 ? val / magnitude : 0);
 }
 
-export default verifyCors(handler);
+export default enableCors(handler);

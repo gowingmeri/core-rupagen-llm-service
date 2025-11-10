@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { verifyCors } from "@/middleware/verifyCors";
+import { enableCors } from "@/middleware/enableCors";
 
 type Data = {
   status: string;
@@ -12,4 +12,4 @@ async function handler(
   res.status(200).json({ status: "LLM is connected to Groq Cloud" });
 }
 
-export default verifyCors(handler);
+export default enableCors(handler);
