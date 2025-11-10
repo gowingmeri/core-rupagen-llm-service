@@ -14,15 +14,15 @@ interface GroqResponse {
   error?: string;
 }
 
-const SYSTEM_PROMPT = process.env.NEXT_PUBLIC_SYSTEM_PROMPT as string;
+// const SYSTEM_PROMPT = process.env.NEXT_PUBLIC_SYSTEM_PROMPT as string;
 const URL_API = process.env.NEXT_PUBLIC_URL_API as string;
 
 export const requestToGroqAI = async (history: Message[]): Promise<string> => {
   if (!URL_API) throw new Error("NEXT_PUBLIC_URL_API is not defined");
-  if (!SYSTEM_PROMPT) console.warn("SYSTEM_PROMPT is empty");
+  // if (!SYSTEM_PROMPT) console.warn("SYSTEM_PROMPT is empty");
 
   const messages: Message[] = [
-    { role: "system", content: SYSTEM_PROMPT },
+    // { role: "system", content: SYSTEM_PROMPT },
     ...history.filter(msg => msg.role !== "system"),
   ];
 

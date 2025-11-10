@@ -22,8 +22,8 @@ const groq = new Groq({
 });
 
 const MODEL_LLM_NAME = process.env.DINO_MODEL_LLM_NAME as string;
-const USER_DAILY_NOTE = process.env.DINO_USER_DAILY_NOTE as string;
-const USER_PERSONALIZE = process.env.DINO_USER_PERSONALIZE as string;
+// const USER_DAILY_NOTE = process.env.DINO_USER_DAILY_NOTE as string;
+// const USER_PERSONALIZE = process.env.DINO_USER_PERSONALIZE as string;
 
 async function handler(
   req: NextApiRequest,
@@ -45,7 +45,8 @@ async function handler(
   try {
     const dinoSystemMessage = {
       role: "system" as const,
-      content: `${MODEL_LLM_NAME}. ${USER_DAILY_NOTE}. ${USER_PERSONALIZE}`,
+      // content: `${MODEL_LLM_NAME}. ${USER_DAILY_NOTE}. ${USER_PERSONALIZE}`,
+      content: `${MODEL_LLM_NAME}`,
     };
 
     const messagesWithDino = [dinoSystemMessage, ...messages];
