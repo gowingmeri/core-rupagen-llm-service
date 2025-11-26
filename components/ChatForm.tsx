@@ -35,7 +35,7 @@ const ChatForm: React.FC<ChatFormProps> = ({
       />
 
       <div className="flex justify-between items-center border-t border-black/15 p-3 rounded-3xl">
-        <p className="text-xs text-black/50">by CH Indomie Goreng's Team</p>
+        <p className="text-xs text-black/50">by Gowing Meri's Team</p>
         <button
           onClick={handleSend}
           className={`p-5 w-[64px] font-semibold rounded-full transition ${
